@@ -9,6 +9,11 @@
 <meta property="og:description" content="165 m² eleganti nel cuore pedonale di Pescara, a 450 m dal mare. Fino a 6 ospiti.">
 <meta property="og:image" content="foto/foto18.jpg">
 <meta property="og:type" content="website">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F4C5C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -55,12 +60,11 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-hei
 header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:22px 0}
 header.solid{background:rgba(251,248,244,.97);box-shadow:0 1px 0 var(--line);padding:12px 0;backdrop-filter:blur(8px)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-family:'Cormorant Garamond',serif;font-size:1.6rem;letter-spacing:.14em;color:var(--white);transition:.4s;text-decoration:none;text-shadow:0 1px 14px rgba(10,14,11,.5)}
-header.solid .brand{text-shadow:none}
+.brand{display:block;line-height:0;text-decoration:none}
+.brand img{height:74px;width:auto;transition:height .4s;filter:drop-shadow(0 2px 14px rgba(10,14,11,.45))}
+header.solid .brand img{height:54px;filter:none}
 .menu a{text-shadow:0 1px 12px rgba(10,14,11,.5)}
 header.solid .menu a{text-shadow:none}
-.brand small{display:block;font-family:'Jost',sans-serif;font-size:.52rem;letter-spacing:.34em;opacity:.8;margin-top:2px}
-header.solid .brand{color:var(--green)}
 .menu{display:flex;align-items:center;gap:30px;list-style:none}
 .menu a{color:var(--white);text-decoration:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;transition:.3s;opacity:.92}
 header.solid .menu a{color:var(--ink)}
@@ -227,8 +231,12 @@ section{padding:104px 0}
 .rules li{padding:9px 0;border-bottom:1px dotted var(--line);display:flex;justify-content:space-between;gap:16px}
 .rules li:last-child{border-bottom:0}
 .rules li b{font-weight:400;color:var(--ink);text-align:right}
-.alert{background:#fdf6e8;border-left:3px solid var(--brass);padding:22px 26px;margin-top:26px;font-size:.96rem;color:var(--ink-soft)}
-.alert b{color:var(--ink);font-weight:500}
+.arrivo{background:var(--cream);border:1px solid var(--line);padding:40px 50px;margin-top:26px}
+.arrivo h3{font-size:1.6rem;margin-bottom:24px;text-align:center}
+.arrivo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.arrivo-lab{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin-bottom:10px}
+.arrivo-grid p{font-size:.98rem;color:var(--ink-soft)}
+.arrivo-nota{text-align:center;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:.92rem;color:var(--ink-soft);font-style:italic}
 
 /* REVIEWS */
 .revs{background:var(--cream-2)}
@@ -266,19 +274,16 @@ textarea{resize:vertical;min-height:110px}
 .ct-block .lab{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-l);margin-bottom:8px}
 .ct-block a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:1px}
 .ct-block a:hover{border-color:var(--brass-l)}
-.wa{display:inline-flex;align-items:center;gap:9px;background:#25d366;color:#fff;padding:13px 26px;text-decoration:none;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin-top:8px;transition:.3s}
-.wa:hover{background:#1eb455}
+.wa{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;padding:11px 22px 11px 12px;text-decoration:none;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin-top:12px;transition:.3s;border-radius:40px}
+.wa:hover{background:#25D366;border-color:#25D366}
+.wa-ico{width:30px;height:30px;flex:0 0 30px;display:block}
+.wa-ico svg{width:100%;height:100%;display:block}
 
 /* FOOTER */
-footer{background:#1f2b25;color:rgba(255,255,255,.62);padding:60px 0 32px;font-size:.84rem}
-.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:44px}
-footer h4{font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass-l);margin-bottom:16px;font-weight:400}
-footer .fbrand{font-family:'Cormorant Garamond',serif;font-size:1.7rem;letter-spacing:.12em;color:#fff;margin-bottom:12px}
-footer ul{list-style:none}
-footer li{margin-bottom:8px}
+footer{background:#1f2b25;color:rgba(255,255,255,.62);padding:26px 0;font-size:.84rem}
 footer a{text-decoration:none;transition:.3s}
 footer a:hover{color:var(--brass-l)}
-.ft-bot{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.76rem;opacity:.7}
+.ft-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.78rem;opacity:.75}
 
 /* LIGHTBOX */
 .lb{position:fixed;inset:0;background:rgba(18,22,20,.96);z-index:1000;display:none;align-items:center;justify-content:center}
@@ -312,7 +317,10 @@ footer a:hover{color:var(--brass-l)}
   .space-txt{padding:44px 30px}
   .space-row img{min-height:280px}
   .rules{grid-template-columns:1fr;padding:34px 28px;gap:28px}
-  .ft-grid{grid-template-columns:1fr;gap:32px}
+  .arrivo-grid{grid-template-columns:1fr;gap:26px}
+  .arrivo{padding:30px 26px}
+  .brand img{height:56px}
+  header.solid .brand img{height:44px}
   section{padding:74px 0}
   .hero-facts{gap:22px}
   .hero-facts span:after{display:none}
@@ -324,11 +332,11 @@ footer a:hover{color:var(--brass-l)}
 
 <header id="hd">
   <div class="wrap nav">
-    <a href="#top" class="brand">MILU<small>Luxury Apartment</small></a>
+    <a href="#top" class="brand"><img src="foto/logo-milu.png" alt="Milu Luxury Apartments"></a>
     <ul class="menu" id="menu">
       <li><a href="#appartamento" data-i18n="nav1">L'appartamento</a></li>
       <li><a href="#galleria" data-i18n="nav2">Galleria</a></li>
-      <li><a href="#posizione" data-i18n="nav3">Pescara</a></li>
+      <li><a href="#posizione" data-i18n="nav3">Posizione</a></li>
       <li><a href="#tariffe" data-i18n="nav4">Prenota</a></li>
       <li><a href="#contatti" data-i18n="nav5">Contatti</a></li>
     </ul>
@@ -510,7 +518,6 @@ footer a:hover{color:var(--brass-l)}
         <li><span class="place" data-i18n="d1">Spiaggia di Pescara<small data-i18n="d1s">lungomare e stabilimenti</small></span><span class="km">450 m</span></li>
         <li><span class="place" data-i18n="d2">Stazione Centrale<small data-i18n="d2s">treni e parcheggio</small></span><span class="km">500 m</span></li>
         <li><span class="place" data-i18n="d3">Terminal autobus<small data-i18n="d3s">collegamenti regionali</small></span><span class="km">450 m</span></li>
-        <li><span class="place" data-i18n="d4">Ristoranti e caffè<small data-i18n="d4s">sotto casa, sul corso</small></span><span class="km">10 m</span></li>
         <li><span class="place" data-i18n="d5">Casa natale di D'Annunzio<small data-i18n="d5s">museo e centro storico</small></span><span class="km">1,4 km</span></li>
         <li><span class="place" data-i18n="d6">Porto e ponte del Mare<small data-i18n="d6s">passeggiata serale</small></span><span class="km">1,6 km</span></li>
         <li><span class="place" data-i18n="d7">Aeroporto di Pescara<small data-i18n="d7s">voli nazionali e low cost</small></span><span class="km">3,9 km</span></li>
@@ -608,20 +615,32 @@ footer a:hover{color:var(--brass-l)}
         </ul>
       </div>
       <div>
-        <h3 data-i18n="ru2t">Buono a sapersi</h3>
+        <h3 data-i18n="ru2t">Regole della casa</h3>
         <ul>
-          <li><span data-i18n="ru2a">Bambini</span><b data-i18n="ru2av">benvenuti (no culle)</b></li>
           <li><span data-i18n="ru2b">Animali</span><b data-i18n="ru2bv">non ammessi</b></li>
           <li><span data-i18n="ru2c">Fumo</span><b data-i18n="ru2cv">non consentito</b></li>
           <li><span data-i18n="ru2d">Feste ed eventi</span><b data-i18n="ru2dv">non consentiti</b></li>
-          <li><span data-i18n="ru2e">Piano</span><b data-i18n="ru2ev">terzo, scala B, con ascensore</b></li>
-          <li><span data-i18n="ru2f">Lingue</span><b data-i18n="ru2fv">italiano, inglese</b></li>
         </ul>
       </div>
     </div>
 
-    <div class="alert reveal">
-      <b data-i18n="alt">Come arrivare in auto.</b> <span data-i18n="alp">L'appartamento è in ZTL pedonale: non è possibile arrivare in macchina fino al portone. Il parcheggio più comodo è quello della Stazione Centrale, a 500 metri, al costo di circa 4 € al giorno. Ti mandiamo le indicazioni esatte insieme alla conferma della prenotazione.</span>
+    <div class="arrivo reveal">
+      <h3 data-i18n="arv0">Come arrivare</h3>
+      <div class="arrivo-grid">
+        <div>
+          <div class="arrivo-lab" data-i18n="arv1">In treno</div>
+          <p data-i18n="arv1p">Scendi alla Stazione Centrale di Pescara. Da lì sono 500 metri a piedi, sette minuti in piano lungo Corso Umberto: nessuna scala, nessun mezzo da prendere.</p>
+        </div>
+        <div>
+          <div class="arrivo-lab" data-i18n="arv2">Dall'aeroporto</div>
+          <p data-i18n="arv2p">L'aeroporto d'Abruzzo dista circa 4 km. In taxi sono dieci minuti. In alternativa la linea urbana 38 collega l'aeroporto alla Stazione Centrale in un quarto d'ora, e da lì si prosegue a piedi.</p>
+        </div>
+        <div>
+          <div class="arrivo-lab" data-i18n="arv3">In auto</div>
+          <p data-i18n="arv3p">Siamo in ZTL pedonale: non si arriva in macchina fino al portone. Il parcheggio più comodo è quello della Stazione Centrale, a 500 metri, circa 4 € al giorno.</p>
+        </div>
+      </div>
+      <p class="arrivo-nota" data-i18n="arvn">Ti mandiamo le indicazioni esatte insieme alla conferma della prenotazione.</p>
     </div>
   </div>
 </section>
@@ -678,11 +697,10 @@ footer a:hover{color:var(--brass-l)}
           <div class="lab" data-i18n="ci2">Telefono</div>
           Francesca — <a href="tel:+393348369972">+39 334 836 9972</a><br>
           Lucia — <a href="tel:+393485106399">+39 348 510 6399</a><br>
-          <a class="wa" href="https://wa.me/393348369972" target="_blank" rel="noopener" data-i18n="ci2b">Scrivici su WhatsApp</a>
-        </div>
-        <div class="ct-block">
-          <div class="lab" data-i18n="ci3">Buono a sapersi</div>
-          <span data-i18n="ci3b">Rispondiamo in italiano e in inglese, di solito entro poche ore. Per prenotare servono almeno 24 ore di preavviso.</span>
+          <a class="wa" href="https://wa.me/393348369972" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <span class="wa-ico"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M22.6 9.3A9.2 9.2 0 0 0 8.1 20.4L6.8 25.2l4.9-1.3a9.2 9.2 0 0 0 4.4 1.1h.01a9.2 9.2 0 0 0 6.5-15.7zM16.1 23.5c-1.4 0-2.8-.4-4-1.1l-.29-.17-2.9.76.78-2.84-.19-.3a7.65 7.65 0 1 1 6.6 3.65zm4.2-5.73c-.23-.12-1.36-.67-1.57-.74-.21-.08-.36-.12-.51.11-.15.23-.59.74-.72.89-.13.15-.27.17-.5.06a6.27 6.27 0 0 1-1.85-1.14 6.94 6.94 0 0 1-1.28-1.59c-.13-.23-.01-.36.1-.47.11-.11.23-.27.35-.41.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.41-.06-.11-.51-1.24-.7-1.7-.19-.44-.37-.38-.51-.39h-.44c-.15 0-.39.06-.6.29-.2.23-.79.77-.79 1.88s.81 2.18.93 2.33c.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.36-.55 1.55-1.09.19-.54.19-1 .13-1.1-.06-.1-.21-.16-.44-.27z"/></svg></span>
+            <span data-i18n="ci2b">Scrivici su WhatsApp</span>
+          </a>
         </div>
       </div>
     </div>
@@ -691,31 +709,6 @@ footer a:hover{color:var(--brass-l)}
 
 <footer>
   <div class="wrap">
-    <div class="ft-grid">
-      <div>
-        <div class="fbrand">MILU</div>
-        <p data-i18n="ftp">Appartamento di 165 m² nel centro pedonale di Pescara, a 450 metri dal mare. Fino a 6 ospiti.</p>
-      </div>
-      <div>
-        <h4 data-i18n="ft1">Naviga</h4>
-        <ul>
-          <li><a href="#appartamento" data-i18n="nav1b">L'appartamento</a></li>
-          <li><a href="#galleria" data-i18n="nav2b">Galleria</a></li>
-          <li><a href="#posizione" data-i18n="nav3b">Pescara</a></li>
-          <li><a href="#tariffe" data-i18n="nav4b">Prenota</a></li>
-          <li><a href="#contatti" data-i18n="nav5b">Contatti</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="ft2">Contatti</h4>
-        <ul>
-          <li>Via Firenze 303, Pescara</li>
-          <li><a href="tel:+393348369972">+39 334 836 9972</a></li>
-          <li><a href="tel:+393485106399">+39 348 510 6399</a></li>
-          <li><a href="https://wa.me/393348369972" target="_blank" rel="noopener">WhatsApp</a></li>
-        </ul>
-      </div>
-    </div>
     <div class="ft-bot">
       <span>© <span id="yy"></span> Milu Luxury Apartment — <span data-i18n="ftr">Tutti i diritti riservati</span></span>
       <span>CIN IT068028C1FQ55FEKP</span>
@@ -781,8 +774,7 @@ document.addEventListener('keydown',e=>{
 
 /* ---------- TRADUZIONI ---------- */
 const EN={
- nav1:"The apartment",nav2:"Gallery",nav3:"Pescara",nav4:"Book",nav5:"Contact",
- nav1b:"The apartment",nav2b:"Gallery",nav3b:"Pescara",nav4b:"Book",nav5b:"Contact",
+ nav1:"The apartment",nav2:"Gallery",nav3:"Location",nav4:"Book",nav5:"Contact",
  heroTag:"Pescara · Via Firenze 303",
  heroH1:"Milu Luxury Apartment",
  heroSub:"In the heart of central Pescara, inside the pedestrian zone, a short walk from the sea.",
@@ -813,7 +805,7 @@ const EN={
  e7:"Gallery",g0t:"A look inside",g0p:"Tap a photo to enlarge it.",
  e8:"The location",l0t:"Pescara is walkable",l0p:"On the main street, inside the pedestrian island. From the front door you can reach everything on foot.",
  d1:"Pescara beach",d1s:"promenade and beach clubs",d2:"Central station",d2s:"trains and car park",
- d3:"Bus terminal",d3s:"regional connections",d4:"Restaurants and cafés",d4s:"downstairs, on the main street",
+ d3:"Bus terminal",d3s:"regional connections",
  d5:"D'Annunzio's birthplace",d5s:"museum and old town",d6:"Harbour and Ponte del Mare",d6s:"evening walk",
  d7:"Pescara airport",d7s:"domestic and low-cost flights",
  e9:"Book",t0t:"Pick your dates and see the price",
@@ -831,11 +823,16 @@ const EN={
  bfw:"WhatsApp will open with the message already written: just hit send.",
  ru1t:"Your stay",ru1a:"Check-in",ru1b:"Check-out",ru1c:"Minimum stay",ru1cv:"2 nights",
  ru1d:"Maximum stay",ru1dv:"28 days",ru1e:"Booking notice",ru1ev:"at least 24 hours",
- ru2t:"Good to know",ru2a:"Children",ru2av:"welcome (no cots)",ru2b:"Pets",ru2bv:"not allowed",
+ ru2t:"Good to know",ru2b:"Pets",ru2bv:"not allowed",
  ru2c:"Smoking",ru2cv:"not allowed",ru2d:"Parties and events",ru2dv:"not allowed",
- ru2e:"Floor",ru2ev:"third, staircase B, with lift",ru2f:"Languages",ru2fv:"Italian, English",
- alt:"Arriving by car.",
- alp:"The apartment sits inside the pedestrian restricted-traffic zone: you cannot drive up to the front door. The most convenient car park is at Pescara Central Station, 500 metres away, at around €4 per day. We send exact directions together with your booking confirmation.",
+ arv0:"Getting here",
+ arv1:"By train",
+ arv1p:"Get off at Pescara Centrale. From there it is 500 metres on foot, seven flat minutes along Corso Umberto: no stairs, no connections to catch.",
+ arv2:"From the airport",
+ arv2p:"Abruzzo Airport is about 4 km away. A taxi takes ten minutes. Alternatively, city bus 38 links the airport to Pescara Centrale in around fifteen minutes, and from there you continue on foot.",
+ arv3:"By car",
+ arv3p:"We are inside the pedestrian restricted zone: you cannot drive up to the front door. The most convenient car park is at Pescara Centrale, 500 metres away, around €4 per day.",
+ arvn:"We send exact directions together with your booking confirmation.",
  e10:"Reviews",rv0t:"What guests say",rv0p:"9.7 out of 10 from 57 verified reviews on Booking.com.",
  rv1:"“An exceptional apartment, elegant, cared for down to the smallest detail. It felt like being at home: the owners looked after us in every way.”",
  rv2:"“The house is very spacious and welcoming, the rooms bright. Even though we are right in the centre, inside the pedestrian zone there is no noise.”",
@@ -843,10 +840,7 @@ const EN={
  e12:"Contact",c0t:"Let's talk",
  c0p:"For a quick question, or if you would rather speak to us before booking. We reply in Italian and English.",
  ci1:"Address",ci1b:"Third floor, staircase B (lift available)",ci1c:"Open in Google Maps",
- ci2:"Phone",ci2b:"Message us on WhatsApp",
- ci3:"Good to know",ci3b:"We reply in Italian and English, usually within a few hours. Bookings need at least 24 hours' notice.",
- ftp:"A 165 m² apartment in the pedestrian centre of Pescara, 450 metres from the sea. Up to 6 guests.",
- ft1:"Navigate",ft2:"Contact",ftr:"All rights reserved"
+ ci2:"Phone",ci2b:"Message us on WhatsApp",ftr:"All rights reserved"
 };
 const IT={};
 document.querySelectorAll('[data-i18n]').forEach(el=>IT[el.dataset.i18n]=el.innerHTML);

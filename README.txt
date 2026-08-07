@@ -2,30 +2,57 @@ MILU LUXURY APARTMENT — SITO WEB
 =================================
 
 CONTENUTO DELLA CARTELLA
-  index.html   il sito completo (italiano + inglese)
-  foto/        le 24 fotografie ottimizzate per il web
+  index.html            il sito completo (italiano + inglese)
+  foto/                 le 25 immagini
+  disponibilita.json    le date da bloccare sul calendario
 
-COME VEDERLO SUBITO
-  Fai doppio clic su index.html: si apre nel browser. Funziona anche offline.
+COME VEDERLO
+  Doppio clic su index.html. Le tre voci devono restare sempre
+  nella stessa cartella, altrimenti le foto non si vedono.
 
-PRIMA DI PUBBLICARLO — 1 MODIFICA OBBLIGATORIA
-  Nel file index.html, cerca la riga che contiene
-      INSERIRE-EMAIL@DOMINIO.IT
-  e sostituiscila con l'indirizzo email definitivo del B&B
-  (es. info@miluluxuryapartment.it).
-  È l'indirizzo dove arrivano le richieste inviate dal modulo contatti.
 
-COME METTERLO ONLINE (gratis, 5 minuti)
-  1. Vai su netlify.com e registrati.
-  2. Scegli "Add new site" > "Deploy manually".
-  3. Trascina l'intera cartella sito-milu nella finestra.
-  4. Il sito è online su un indirizzo temporaneo tipo nome-a-caso.netlify.app
-  5. In "Domain settings" colleghi il dominio vero quando lo avete registrato.
-     Il certificato HTTPS si attiva da solo, gratis.
+CALENDARIO E PREZZI
+-------------------
+Il calendario calcola il prezzo da solo:
 
-COSA MANCA ANCORA
-  - email definitiva del dominio (vedi sopra)
-  - pagina privacy policy e cookie policy
-  - denominazione, indirizzo fiscale e P.IVA/CF nel footer
-  - eventuale bar convenzionato per la colazione
-  - foto della facciata del palazzo e del lungomare
+  1 – 3 ospiti     56 € bassa stagione   58 € alta stagione
+  4 ospiti         46 €                  49 €
+  5 – 6 ospiti     42 €                  44 €
+
+Prezzi a persona, a notte. Alta stagione = giugno, luglio, agosto.
+Se il soggiorno è a cavallo tra due stagioni, ogni notte viene
+conteggiata con la sua tariffa.
+
+Vincoli già impostati: minimo 2 notti, massimo 28, preavviso 24 ore.
+Per cambiare tariffe o vincoli, cerca "const TARIFFE" dentro index.html.
+
+
+BLOCCARE LE DATE OCCUPATE
+-------------------------
+Apri disponibilita.json e scrivi le date già prenotate così:
+
+  "occupate": ["2026-08-14", "2026-08-15", "2026-08-16"]
+
+Una data per ogni notte occupata, formato AAAA-MM-GG.
+Salva, ricarica il file su GitHub, e il calendario si aggiorna.
+
+Per la sincronizzazione automatica con Booking serve il link iCal
+del vostro pannello Booking (Calendario > Sincronizza calendari >
+Esporta). Mandamelo e configuro l'aggiornamento automatico giornaliero.
+
+
+LE RICHIESTE DI PRENOTAZIONE
+----------------------------
+Quando un ospite compila il modulo, si apre WhatsApp verso il numero
+di Francesca con il messaggio già scritto: nome, cognome, nazionalità,
+città, date, ospiti, età dei bambini, email, orario di arrivo e note.
+
+Per cambiare il numero che riceve le richieste, cerca "const WA_NUM"
+dentro index.html.
+
+
+ANCORA DA FARE
+--------------
+  - privacy policy e cookie policy
+  - denominazione, indirizzo fiscale e P.IVA nel footer
+  - foto di copertina ad alta risoluzione (quella attuale è 512 px)
