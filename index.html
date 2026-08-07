@@ -37,14 +37,14 @@
 </script>
 <style>
 :root{
-  --ink:#2a2521; --ink-soft:#6a6058; --line:#e3dad0;
+  --ink:#231f1b; --ink-soft:#544b42; --line:#e3dad0;
   --cream:#fbf8f4; --cream-2:#f4efe7; --white:#fff;
   --green:#2f4a3f; --green-l:#3f6154;
   --brass:#a98b52; --brass-l:#c4a870;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Jost',system-ui,sans-serif;font-weight:300;color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased}
+body{font-family:'Jost',system-ui,sans-serif;font-weight:400;font-size:1.06rem;color:var(--ink);background:var(--cream);line-height:1.72;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
 h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.15;letter-spacing:.01em}
@@ -55,7 +55,10 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-hei
 header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:22px 0}
 header.solid{background:rgba(251,248,244,.97);box-shadow:0 1px 0 var(--line);padding:12px 0;backdrop-filter:blur(8px)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-family:'Cormorant Garamond',serif;font-size:1.6rem;letter-spacing:.14em;color:var(--white);transition:.4s;text-decoration:none}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.6rem;letter-spacing:.14em;color:var(--white);transition:.4s;text-decoration:none;text-shadow:0 1px 14px rgba(10,14,11,.5)}
+header.solid .brand{text-shadow:none}
+.menu a{text-shadow:0 1px 12px rgba(10,14,11,.5)}
+header.solid .menu a{text-shadow:none}
 .brand small{display:block;font-family:'Jost',sans-serif;font-size:.52rem;letter-spacing:.34em;opacity:.8;margin-top:2px}
 header.solid .brand{color:var(--green)}
 .menu{display:flex;align-items:center;gap:30px;list-style:none}
@@ -73,13 +76,17 @@ header.solid .burger span{background:var(--ink)}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('foto/hero.jpg') center/cover no-repeat;transform:scale(1.04)}
-.hero-bg:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,26,22,.55),rgba(20,26,22,.3) 40%,rgba(20,26,22,.72))}
-.hero-in{position:relative;z-index:2;padding:120px 28px 90px;max-width:820px}
+.hero-bg{position:absolute;inset:0;background:url('foto/hero.jpg') center 38%/cover no-repeat;transform:scale(1.02)}
+.hero-bg:after{content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 82% 62% at 50% 46%, rgba(12,18,14,.70) 0%, rgba(12,18,14,.34) 62%, transparent 100%),
+    linear-gradient(180deg, rgba(12,18,14,.64) 0%, rgba(12,18,14,.34) 32%, rgba(12,18,14,.40) 62%, rgba(12,18,14,.82) 100%)}
+.hero-in{position:relative;z-index:2;padding:120px 28px 90px;max-width:860px;
+  text-shadow:0 1px 26px rgba(10,14,11,.55), 0 1px 3px rgba(10,14,11,.4)}
 .hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);font-weight:300;letter-spacing:.02em;margin-bottom:6px}
-.hero .tag{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;margin-bottom:34px;opacity:.85}
-.hero p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.6vw,1.6rem);font-style:italic;font-weight:300;max-width:600px;margin:0 auto 38px;opacity:.95}
-.hero-facts{display:flex;gap:38px;justify-content:center;flex-wrap:wrap;margin-bottom:42px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.9}
+.hero .tag{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;margin-bottom:34px;color:#f0e6d2}
+.hero p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.25rem,2.8vw,1.72rem);font-style:italic;font-weight:400;max-width:640px;margin:0 auto 40px;color:#fdf9f2}
+.hero-facts{display:flex;gap:38px;justify-content:center;flex-wrap:wrap;margin-bottom:42px;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:#f6efe2}
 .hero-facts span{position:relative}
 .hero-facts span:not(:last-child):after{content:'';position:absolute;right:-19px;top:50%;width:3px;height:3px;background:var(--brass-l);border-radius:50%}
 .btn{display:inline-block;padding:15px 40px;border:1px solid var(--brass-l);background:var(--brass);color:#fff;text-decoration:none;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;transition:.35s;cursor:pointer}
@@ -88,7 +95,7 @@ header.solid .burger span{background:var(--ink)}
 .btn-ghost:hover{background:#fff;color:var(--green);border-color:#fff}
 .btn-dark{background:var(--green);border-color:var(--green)}
 .btn-dark:hover{background:transparent;color:var(--green);border-color:var(--green)}
-.scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+.scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:#efe7d9;text-shadow:0 1px 12px rgba(10,14,11,.6)}
 .scroll-cue:before{content:'';display:block;width:1px;height:38px;background:rgba(255,255,255,.5);margin:0 auto 10px}
 
 /* RATING BAR */
@@ -102,7 +109,7 @@ header.solid .burger span{background:var(--ink)}
 section{padding:104px 0}
 .sec-head{text-align:center;max-width:720px;margin:0 auto 60px}
 .sec-head h2{font-size:clamp(2.1rem,4.6vw,3.1rem);margin-bottom:20px}
-.sec-head p{color:var(--ink-soft);font-size:1.02rem}
+.sec-head p{color:var(--ink-soft);font-size:1.08rem}
 .rule{width:52px;height:1px;background:var(--brass);margin:26px auto}
 
 /* INTRO */
@@ -117,12 +124,12 @@ section{padding:104px 0}
 .intro-img .badge span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
 
 /* PILLARS */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);background:var(--white)}
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);background:var(--white);max-width:820px;margin:0 auto}
 .pillar{padding:48px 38px;text-align:center;border-right:1px solid var(--line)}
 .pillar:last-child{border-right:0}
 .pillar .num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;color:var(--brass);line-height:1;margin-bottom:8px}
 .pillar h3{font-size:1.35rem;margin-bottom:12px}
-.pillar p{font-size:.92rem;color:var(--ink-soft)}
+.pillar p{font-size:1rem;color:var(--ink-soft)}
 
 /* GALLERY */
 .gallery{background:var(--cream-2)}
@@ -145,14 +152,14 @@ section{padding:104px 0}
 .space-txt h3{font-size:1.9rem;margin-bottom:16px}
 .space-txt p{color:var(--ink-soft);margin-bottom:16px}
 .space-row:nth-child(even) .space-txt{order:-1}
-.tick{list-style:none;font-size:.92rem;color:var(--ink-soft)}
+.tick{list-style:none;font-size:1rem;color:var(--ink-soft)}
 .tick li{padding-left:22px;position:relative;margin-bottom:7px}
 .tick li:before{content:'';position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--brass)}
 
 /* AMENITIES */
 .amen{background:var(--cream-2)}
 .amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.amen-grid div{background:var(--cream-2);padding:26px 20px;text-align:center;font-size:.84rem;letter-spacing:.05em;color:var(--ink-soft)}
+.amen-grid div{background:var(--cream-2);padding:26px 20px;text-align:center;font-size:.94rem;letter-spacing:.03em;color:var(--ink-soft)}
 .amen-grid div b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--ink);margin-bottom:4px}
 
 /* LOCATION */
@@ -168,24 +175,59 @@ section{padding:104px 0}
 .dist .km{font-size:.8rem;letter-spacing:.18em;color:var(--brass-l);white-space:nowrap}
 .loc-img img{aspect-ratio:3/4;object-fit:cover}
 
-/* RATES */
+/* BOOKING */
 .rates{background:var(--white)}
-.rate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:44px}
-.rate-card{border:1px solid var(--line);padding:44px 34px;text-align:center;background:var(--cream);transition:.4s}
-.rate-card.feat{border-color:var(--brass);background:var(--white);box-shadow:0 14px 40px rgba(42,37,33,.07)}
-.rate-card:hover{border-color:var(--brass)}
-.rate-card .who{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-bottom:16px}
-.rate-card .price{font-family:'Cormorant Garamond',serif;font-size:3.1rem;line-height:1;color:var(--green)}
-.rate-card .price sup{font-size:1.2rem;vertical-align:super;margin-right:2px}
-.rate-card .per{font-size:.78rem;color:var(--ink-soft);margin-top:8px;letter-spacing:.06em}
-.rate-card .note{font-size:.84rem;color:var(--ink-soft);margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.bk-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start;margin-bottom:44px}
+.bk-panel{border:1px solid var(--line);background:var(--cream);padding:30px 32px}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.cal-nav button{background:none;border:1px solid var(--line);width:34px;height:34px;cursor:pointer;font-size:1.1rem;color:var(--green);transition:.25s;line-height:1}
+.cal-nav button:hover:not(:disabled){background:var(--green);color:#fff;border-color:var(--green)}
+.cal-nav button:disabled{opacity:.28;cursor:default}
+.cal-nav .mth{font-family:'Cormorant Garamond',serif;font-size:1.5rem;text-transform:capitalize}
+.cal-months{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.cal table{width:100%;border-collapse:collapse}
+.cal th{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;padding-bottom:8px}
+.cal td{padding:1px;text-align:center}
+.cal .d{width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:.86rem;cursor:pointer;transition:.18s;border-radius:2px;border:1px solid transparent}
+.cal .d:hover:not(.off):not(.busy){border-color:var(--brass)}
+.cal .d.off{color:#c3bab0;cursor:default;text-decoration:none}
+.cal .d.busy{color:#c9bfb4;cursor:not-allowed;position:relative;background:repeating-linear-gradient(45deg,transparent,transparent 3px,#e7ded3 3px,#e7ded3 4px)}
+.cal .d.sel{background:var(--green);color:#fff;border-color:var(--green)}
+.cal .d.rng{background:#e7ece8;color:var(--green)}
+.cal-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;font-size:.76rem;color:var(--ink-soft)}
+.cal-legend i{display:inline-block;width:12px;height:12px;vertical-align:-2px;margin-right:6px;border:1px solid var(--line)}
+.lg-busy{background:repeating-linear-gradient(45deg,transparent,transparent 3px,#e7ded3 3px,#e7ded3 4px)}
+.lg-sel{background:var(--green);border-color:var(--green)}
+.bk-sum{border:1px solid var(--brass);background:var(--white);padding:26px 28px;margin-bottom:22px}
+.bk-sum .row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px dotted var(--line);font-size:.95rem}
+.bk-sum .row:last-of-type{border-bottom:0}
+.bk-sum .row b{font-weight:500}
+.bk-tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:12px;padding-top:16px}
+.bk-tot span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+.bk-tot b{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;color:var(--green);line-height:1}
+.bk-hint{font-size:.86rem;color:var(--ink-soft);margin-top:10px}
+.bk-warn{background:#fdf1ea;border-left:3px solid #c9714a;padding:12px 16px;font-size:.86rem;color:#8a4a2c;margin-top:14px}
+.bk-form{display:grid;gap:14px}
+.bk-form label{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:6px}
+.bk-form input,.bk-form select,.bk-form textarea{width:100%;background:var(--white);border:1px solid var(--line);color:var(--ink);padding:12px 14px;font-family:'Jost',sans-serif;font-size:.98rem;font-weight:400;border-radius:0}
+.bk-form input:focus,.bk-form select:focus,.bk-form textarea:focus{outline:0;border-color:var(--brass)}
+.bk-form textarea{resize:vertical;min-height:88px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kids{display:none;gap:12px;flex-wrap:wrap;align-items:flex-end;background:var(--cream-2);border:1px solid var(--line);padding:16px 18px}
+.kids.on{display:flex}
+.kids input{width:84px}
+.kids-lbl{flex:0 0 100%;font-size:.86rem;color:var(--ink-soft);margin-bottom:2px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:.84rem;color:var(--ink-soft);line-height:1.5}
+.chk input{width:auto;margin-top:4px;accent-color:var(--green)}
+.bk-note{background:#fdf6e8;border-left:3px solid var(--brass);padding:16px 20px;font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
+.bk-note b{color:var(--ink);font-weight:500}
 .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;background:var(--cream);border:1px solid var(--line);padding:46px 50px}
 .rules h3{font-size:1.4rem;margin-bottom:16px}
-.rules ul{list-style:none;font-size:.92rem;color:var(--ink-soft)}
+.rules ul{list-style:none;font-size:1rem;color:var(--ink-soft)}
 .rules li{padding:9px 0;border-bottom:1px dotted var(--line);display:flex;justify-content:space-between;gap:16px}
 .rules li:last-child{border-bottom:0}
 .rules li b{font-weight:400;color:var(--ink);text-align:right}
-.alert{background:#fdf6e8;border-left:3px solid var(--brass);padding:22px 26px;margin-top:26px;font-size:.9rem;color:var(--ink-soft)}
+.alert{background:#fdf6e8;border-left:3px solid var(--brass);padding:22px 26px;margin-top:26px;font-size:.96rem;color:var(--ink-soft)}
 .alert b{color:var(--ink);font-weight:500}
 
 /* REVIEWS */
@@ -193,7 +235,7 @@ section{padding:104px 0}
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .rev{background:var(--white);border:1px solid var(--line);padding:38px 34px}
 .rev .stars{color:var(--brass);letter-spacing:.2em;font-size:.8rem;margin-bottom:16px}
-.rev p{font-family:'Jost',sans-serif;font-weight:300;font-size:.98rem;color:var(--ink);margin-bottom:20px;line-height:1.75}
+.rev p{font-family:'Jost',sans-serif;font-weight:400;font-size:1.04rem;color:var(--ink);margin-bottom:20px;line-height:1.75}
 .rev .who{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
 
 /* HOST */
@@ -208,7 +250,8 @@ section{padding:104px 0}
 .contact{background:var(--green);color:#fff}
 .contact .sec-head h2{color:#fff}
 .contact .sec-head p{color:rgba(255,255,255,.8)}
-.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.ct-photo img{aspect-ratio:4/3;object-fit:cover}
 form{display:grid;gap:16px}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;opacity:.72;display:block;margin-bottom:7px}
@@ -286,7 +329,7 @@ footer a:hover{color:var(--brass-l)}
       <li><a href="#appartamento" data-i18n="nav1">L'appartamento</a></li>
       <li><a href="#galleria" data-i18n="nav2">Galleria</a></li>
       <li><a href="#posizione" data-i18n="nav3">Pescara</a></li>
-      <li><a href="#tariffe" data-i18n="nav4">Tariffe</a></li>
+      <li><a href="#tariffe" data-i18n="nav4">Prenota</a></li>
       <li><a href="#contatti" data-i18n="nav5">Contatti</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:14px">
@@ -338,13 +381,12 @@ footer a:hover{color:var(--brass-l)}
       <div class="intro-txt">
         <div class="eyebrow" data-i18n="e1">L'appartamento</div>
         <h2 data-i18n="i1t">L'alloggio ideale per le tue vacanze, in pieno centro</h2>
-        <p data-i18n="i1p1">Milu si trova in un palazzo storico affacciato sul corso principale di Pescara. 165 mq con tre camere matrimoniali, due bagni, un ampio salone e una cucina attrezzata: un'intera casa con un'accoglienza familiare.</p>
+        <p data-i18n="i1p1">Milu si trova in un palazzo storico affacciato sul Corso Principale di Pescara, Corso Umberto. 165 mq al terzo piano con ascensore: tre camere matrimoniali, due bagni, un ampio salone e una cucina attrezzata. Un'intera casa con un'accoglienza familiare.</p>
         <p data-i18n="i1p2">L'arredo è il risultato di anni di scelte fatte una alla volta — ceramiche abruzzesi e mobili di famiglia restaurati.</p>
         <p data-i18n="i1p3">Ogni camera ha il suo balcone sul corso pedonale. La disposizione degli ambienti divide naturalmente la zona notte dalla zona giorno.</p>
       </div>
       <div class="intro-img">
         <img src="foto/foto01.jpg" alt="Salone e zona pranzo del Milu Luxury Apartment" loading="lazy">
-        <div class="badge"><b>165</b><span data-i18n="mq">metri quadri</span></div>
       </div>
     </div>
   </div>
@@ -363,11 +405,6 @@ footer a:hover{color:var(--brass-l)}
         <div class="num">500</div>
         <h3 data-i18n="p2t">Metri dalla stazione</h3>
         <p data-i18n="p2p">Arrivi in treno alla Stazione Centrale e sei a casa in sette minuti, valigia alla mano. Aeroporto a quattro chilometri.</p>
-      </div>
-      <div class="pillar">
-        <div class="num">0</div>
-        <h3 data-i18n="p3t">Auto sotto casa</h3>
-        <p data-i18n="p3p">Siamo in zona pedonale, sul corso. Nessun traffico, nessun rumore: solo negozi, caffè e ristoranti a pochi metri dal portone.</p>
       </div>
     </div>
   </div>
@@ -390,7 +427,6 @@ footer a:hover{color:var(--brass-l)}
       <p data-i18n="s1p">Il cuore della casa: divani ampi, tappeti persiani, luce che entra dalle finestre sul corso. È lo spazio dove il gruppo si ritrova la sera, dopo la spiaggia o dopo cena fuori.</p>
       <ul class="tick">
         <li data-i18n="s1a">Smart TV a schermo piatto</li>
-        <li data-i18n="s1b">Aria condizionata</li>
         <li data-i18n="s1c">WiFi gratuito in tutta la casa</li>
         <li data-i18n="s1d">Tavolo da pranzo per sei</li>
       </ul>
@@ -401,11 +437,11 @@ footer a:hover{color:var(--brass-l)}
     <div class="space-txt">
       <div class="eyebrow" data-i18n="e4">Zona notte</div>
       <h3 data-i18n="s2t">Tre camere matrimoniali</h3>
-      <p data-i18n="s2p">Tre camere, tre letti matrimoniali, tre balconi. Ognuna con la sua identità: la stanza dell'arazzo, quella dallo specchio ovale, quella con la testiera intagliata. Biancheria in cotone e asciugamani cambiati a ogni soggiorno.</p>
+      <p data-i18n="s2p">Tre camere, tre letti matrimoniali, tre balconi. Ognuna con la sua identità: la stanza dell'arazzo, quella dallo specchio ovale, quella con la testiera intagliata.</p>
       <ul class="tick">
+        <li data-i18n="s2e">Aria condizionata in ogni camera</li>
         <li data-i18n="s2a">Balcone privato in ogni camera</li>
         <li data-i18n="s2b">Armadi capienti e appendiabiti</li>
-        <li data-i18n="s2c">Zona notte divisibile in due nuclei</li>
         <li data-i18n="s2d">Camere non fumatori</li>
       </ul>
     </div>
@@ -415,7 +451,7 @@ footer a:hover{color:var(--brass-l)}
     <div class="space-txt">
       <div class="eyebrow" data-i18n="e5">Cucina e servizi</div>
       <h3 data-i18n="s3t">Cucina, lavanderia, due bagni</h3>
-      <p data-i18n="s3p">La cucina è attrezzata davvero: forno, frigorifero, lavastoviglie, macchina del caffè, pentole e stoviglie per sei. Lavatrice a disposizione, utile per i soggiorni lunghi. Due bagni completi, uno con doccia e uno con vasca.</p>
+      <p data-i18n="s3p">Cucina attrezzata: forno, frigorifero, lavastoviglie, macchina del caffè, pentole e stoviglie. In aggiunta, zona lavanderia con lavatrice a disposizione, utile per i soggiorni lunghi. Due bagni completi, uno con doccia e uno con vasca.</p>
       <ul class="tick">
         <li data-i18n="s3a">Lavastoviglie e lavatrice</li>
         <li data-i18n="s3b">Macchina del caffè e bollitore</li>
@@ -478,7 +514,6 @@ footer a:hover{color:var(--brass-l)}
         <li><span class="place" data-i18n="d5">Casa natale di D'Annunzio<small data-i18n="d5s">museo e centro storico</small></span><span class="km">1,4 km</span></li>
         <li><span class="place" data-i18n="d6">Porto e ponte del Mare<small data-i18n="d6s">passeggiata serale</small></span><span class="km">1,6 km</span></li>
         <li><span class="place" data-i18n="d7">Aeroporto di Pescara<small data-i18n="d7s">voli nazionali e low cost</small></span><span class="km">3,9 km</span></li>
-        <li><span class="place" data-i18n="d8">Spiaggia di Montesilvano<small data-i18n="d8s">in auto o in treno</small></span><span class="km">3,4 km</span></li>
       </ul>
       <div class="loc-img"><img src="foto/foto02.jpg" alt="Vista sul corso principale dal balcone" loading="lazy"></div>
     </div>
@@ -489,29 +524,75 @@ footer a:hover{color:var(--brass-l)}
 <section class="rates" id="tariffe">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow" data-i18n="e9">Tariffe</div>
-      <h2 data-i18n="t0t">Più siete, meno spendete a testa</h2>
-      <p data-i18n="t0p">Prezzi indicativi a persona, a notte. La tariffa esatta dipende dal periodo e dalla durata del soggiorno: scrivici e ti confermiamo entro poche ore.</p>
+      <div class="eyebrow" data-i18n="e9">Prenota</div>
+      <h2 data-i18n="t0t">Scegli le date e vedi il prezzo</h2>
+      <p data-i18n="t0p">Seleziona arrivo e partenza sul calendario e indica quante persone siete: il prezzo si calcola da solo.</p>
       <div class="rule"></div>
     </div>
-    <div class="rate-grid reveal">
-      <div class="rate-card">
-        <div class="who" data-i18n="t1w">1 – 3 ospiti</div>
-        <div class="price"><sup>€</sup>56–58</div>
-        <div class="per" data-i18n="perp">a persona, a notte</div>
-        <div class="note" data-i18n="t1n">Tutta la casa a disposizione, anche in coppia.</div>
+    <div class="bk-note reveal">
+      <b data-i18n="bkn1">Questa è una richiesta, non una prenotazione confermata.</b>
+      <span data-i18n="bkn2">Riceverai da noi un messaggio di conferma con la disponibilità definitiva e le istruzioni per l'arrivo, di solito entro poche ore. Nulla è dovuto finché non confermiamo noi.</span>
+    </div>
+
+    <div class="bk-grid reveal">
+      <div class="bk-panel">
+        <div class="cal-nav">
+          <button type="button" id="calPrev" onclick="mvCal(-1)" aria-label="mese precedente">‹</button>
+          <div class="mth" id="calLabel"></div>
+          <button type="button" onclick="mvCal(1)" aria-label="mese successivo">›</button>
+        </div>
+        <div class="cal-months cal" id="calBody"></div>
+        <div class="cal-legend">
+          <span><i class="lg-sel"></i><span data-i18n="lgSel">Selezionato</span></span>
+          <span><i class="lg-busy"></i><span data-i18n="lgBusy">Non disponibile</span></span>
+        </div>
       </div>
-      <div class="rate-card">
-        <div class="who" data-i18n="t2w">4 ospiti</div>
-        <div class="price"><sup>€</sup>46–49</div>
-        <div class="per" data-i18n="perp2">a persona, a notte</div>
-        <div class="note" data-i18n="t2n">Due camere occupate, la terza resta libera.</div>
-      </div>
-      <div class="rate-card feat">
-        <div class="who" data-i18n="t3w">5 – 6 ospiti</div>
-        <div class="price"><sup>€</sup>42–44</div>
-        <div class="per" data-i18n="perp3">a persona, a notte</div>
-        <div class="note" data-i18n="t3n">La formula migliore: tre camere, due bagni, tutti insieme.</div>
+
+      <div>
+        <div class="bk-sum">
+          <div class="row"><span data-i18n="sm1">Arrivo</span><b id="smIn">—</b></div>
+          <div class="row"><span data-i18n="sm2">Partenza</span><b id="smOut">—</b></div>
+          <div class="row"><span data-i18n="sm3">Notti</span><b id="smN">—</b></div>
+          <div class="row"><span data-i18n="sm4">Ospiti</span><b id="smG">2</b></div>
+          <div class="row"><span data-i18n="sm5">Prezzo a persona / notte</span><b id="smPp">—</b></div>
+          <div class="bk-tot"><span data-i18n="sm6">Totale soggiorno</span><b id="smTot">—</b></div>
+          <div class="bk-hint" data-i18n="sm7">È l'importo della tua richiesta. Se confermiamo la disponibilità, è il prezzo che pagherai.</div>
+          <div class="bk-warn" id="smWarn" style="display:none"></div>
+        </div>
+
+        <form class="bk-form" onsubmit="return sendBooking(event)">
+          <div class="g2">
+            <div><label data-i18n="bf1">Nome</label><input type="text" id="b_nome" required></div>
+            <div><label data-i18n="bf2">Cognome</label><input type="text" id="b_cognome" required></div>
+          </div>
+          <div class="g2">
+            <div><label data-i18n="bf3">Nazionalità</label><input type="text" id="b_naz" required></div>
+            <div><label data-i18n="bf4">Città di provenienza</label><input type="text" id="b_citta" required></div>
+          </div>
+          <div class="g2">
+            <div><label data-i18n="bf5">Numero di ospiti</label>
+              <select id="b_osp" onchange="setGuests()">
+                <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option>
+                <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+              </select>
+            </div>
+            <div><label data-i18n="bf6">Di cui bambini</label>
+              <select id="b_kids" onchange="setKids()">
+                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+                <option value="3">3</option><option value="4">4</option>
+              </select>
+            </div>
+          </div>
+          <div id="kidsWrap" class="kids"></div>
+          <div class="g2">
+            <div><label data-i18n="bf7">Email</label><input type="email" id="b_mail" required></div>
+            <div><label data-i18n="bf8">Orario di arrivo previsto</label><input type="text" id="b_ora" data-ph-it="es. 16:30" data-ph-en="e.g. 4:30 pm"></div>
+          </div>
+          <div><label data-i18n="bf9">Richieste particolari</label><textarea id="b_note" data-ph-it="Allergie, esigenze di accessibilità, occasioni speciali…" data-ph-en="Allergies, accessibility needs, special occasions…"></textarea></div>
+          <label class="chk"><input type="checkbox" id="b_priv" required><span data-i18n="bf10">Acconsento al trattamento dei miei dati per rispondere a questa richiesta e gestire l'eventuale soggiorno. Non li cediamo a terzi.</span></label>
+          <button type="submit" class="btn btn-dark" style="justify-self:start" data-i18n="bfsend">Invia richiesta su WhatsApp</button>
+          <p class="bk-hint" data-i18n="bfw">Si aprirà WhatsApp con il messaggio già compilato: ti basta premere invio.</p>
+        </form>
       </div>
     </div>
 
@@ -524,7 +605,6 @@ footer a:hover{color:var(--brass-l)}
           <li><span data-i18n="ru1c">Soggiorno minimo</span><b data-i18n="ru1cv">2 notti</b></li>
           <li><span data-i18n="ru1d">Soggiorno massimo</span><b data-i18n="ru1dv">28 giorni</b></li>
           <li><span data-i18n="ru1e">Preavviso prenotazione</span><b data-i18n="ru1ev">almeno 24 ore</b></li>
-          <li><span data-i18n="ru1f">Cauzione</span><b data-i18n="ru1fv">50 € in contanti, restituiti</b></li>
         </ul>
       </div>
       <div>
@@ -575,55 +655,17 @@ footer a:hover{color:var(--brass-l)}
   </div>
 </section>
 
-<!-- HOST -->
-<section class="host">
-  <div class="wrap">
-    <div class="host-grid reveal">
-      <div class="host-img"><img src="foto/foto08.jpg" alt="Il benvenuto: frutta fresca e dettagli di accoglienza" loading="lazy"></div>
-      <div class="host-txt">
-        <div class="eyebrow" data-i18n="e11">Chi siamo</div>
-        <h2 data-i18n="h0t">Vi aspettiamo di persona</h2>
-        <p data-i18n="h0p1">Milu non è nato come un investimento. È una casa di famiglia nel centro di Pescara che abbiamo restaurato stanza per stanza, scegliendo ogni mobile, ogni specchio, ogni ceramica. Volevamo che chi arriva si sentisse ospite, non cliente.</p>
-        <p data-i18n="h0p2">All'arrivo c'è sempre qualcuno ad accogliervi: di solito Annarita vi apre la porta, vi mostra la casa e vi spiega dove mangiare bene senza allontanarvi. Se preferite arrivare tardi o con un volo scomodo, organizziamo il check-in autonomo con il codice del portone.</p>
-        <p data-i18n="h0p3">Poi restiamo a disposizione al telefono per tutto il soggiorno: un consiglio su dove cenare, un'indicazione per la spiaggia, un problema da risolvere. Quando ripartite ci fa piacere sapere che vi siete trovati bene — e, spesso, che tornerete.</p>
-        <div class="sign" data-i18n="sign">Francesca, Lucia e Annarita</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="contact" id="contatti">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow" data-i18n="e12">Contatti</div>
-      <h2 data-i18n="c0t">Verifica le date</h2>
-      <p data-i18n="c0p">Scrivici le tue date e in poche ore ti confermiamo disponibilità e prezzo esatto. Prenotando direttamente eviti le commissioni dei portali.</p>
+      <h2 data-i18n="c0t">Parliamone</h2>
+      <p data-i18n="c0p">Per una domanda veloce, o se preferisci sentirci prima di prenotare. Rispondiamo in italiano e in inglese.</p>
       <div class="rule"></div>
     </div>
     <div class="ct-grid reveal">
-      <form id="bookform" onsubmit="return sendReq(event)">
-        <div class="f2">
-          <div><label data-i18n="fn">Nome e cognome</label><input type="text" id="f_nome" required></div>
-          <div><label data-i18n="fe">Email</label><input type="email" id="f_mail" required></div>
-        </div>
-        <div class="f2">
-          <div><label data-i18n="fi">Arrivo</label><input type="date" id="f_in" required></div>
-          <div><label data-i18n="fo">Partenza</label><input type="date" id="f_out" required></div>
-        </div>
-        <div class="f2">
-          <div><label data-i18n="fg">Ospiti</label>
-            <select id="f_osp">
-              <option value="2">2</option><option value="3">3</option><option value="4">4</option>
-              <option value="5">5</option><option value="6" selected>6</option>
-            </select>
-          </div>
-          <div><label data-i18n="ft">Telefono</label><input type="tel" id="f_tel"></div>
-        </div>
-        <div><label data-i18n="fm">Messaggio</label><textarea id="f_msg" data-ph-it="Orario di arrivo previsto, esigenze particolari, domande…" data-ph-en="Expected arrival time, special requests, questions…"></textarea></div>
-        <button type="submit" class="btn" style="justify-self:start" data-i18n="fsend">Invia richiesta</button>
-        <p class="privacy-note" data-i18n="fpriv">Inviando la richiesta accetti che i tuoi dati siano usati solo per rispondere e gestire l'eventuale prenotazione. Non li cediamo a nessuno e non ti iscriviamo a nessuna newsletter.</p>
-      </form>
+      <div class="ct-photo"><img src="foto/foto08.jpg" alt="Snack e bevande di benvenuto" loading="lazy"></div>
       <div class="ct-info">
         <div class="ct-block">
           <div class="lab" data-i18n="ci1">Indirizzo</div>
@@ -660,7 +702,7 @@ footer a:hover{color:var(--brass-l)}
           <li><a href="#appartamento" data-i18n="nav1b">L'appartamento</a></li>
           <li><a href="#galleria" data-i18n="nav2b">Galleria</a></li>
           <li><a href="#posizione" data-i18n="nav3b">Pescara</a></li>
-          <li><a href="#tariffe" data-i18n="nav4b">Tariffe</a></li>
+          <li><a href="#tariffe" data-i18n="nav4b">Prenota</a></li>
           <li><a href="#contatti" data-i18n="nav5b">Contatti</a></li>
         </ul>
       </div>
@@ -726,6 +768,7 @@ function buildGal(){
        <img src="foto/${p.f}" alt="${p[LANG]}" loading="lazy">
        <figcaption class="gal-cap">${p[LANG]}</figcaption>
      </figure>`).join('');
+  g.classList.add('in');
 }
 function openLb(i){cur=i;showLb();document.getElementById('lb').classList.add('on');document.body.style.overflow='hidden';}
 function closeLb(){document.getElementById('lb').classList.remove('on');document.body.style.overflow='';}
@@ -738,8 +781,8 @@ document.addEventListener('keydown',e=>{
 
 /* ---------- TRADUZIONI ---------- */
 const EN={
- nav1:"The apartment",nav2:"Gallery",nav3:"Pescara",nav4:"Rates",nav5:"Contact",
- nav1b:"The apartment",nav2b:"Gallery",nav3b:"Pescara",nav4b:"Rates",nav5b:"Contact",
+ nav1:"The apartment",nav2:"Gallery",nav3:"Pescara",nav4:"Book",nav5:"Contact",
+ nav1b:"The apartment",nav2b:"Gallery",nav3b:"Pescara",nav4b:"Book",nav5b:"Contact",
  heroTag:"Pescara · Via Firenze 303",
  heroH1:"Milu Luxury Apartment",
  heroSub:"In the heart of central Pescara, inside the pedestrian zone, a short walk from the sea.",
@@ -748,22 +791,20 @@ const EN={
  r0:"57 reviews",rsrc:"Verified rating on Booking.com",
  e1:"The apartment",
  i1t:"The ideal place for your holiday, right in the centre",
- i1p1:"Milu is set in a historic building facing Pescara's main street. 165 m² with three double bedrooms, two bathrooms, a wide living room and a fully equipped kitchen: a whole house, with a family welcome.",
+ i1p1:"Milu is set in a historic building facing Pescara's main street, Corso Umberto. 165 m² on the third floor with a lift: three double bedrooms, two bathrooms, a wide living room and a fully equipped kitchen. A whole house, with a family welcome.",
  i1p2:"The furnishing is the result of years of choices made one at a time — Abruzzo ceramics and restored family pieces.",
  i1p3:"Every bedroom has its own balcony over the pedestrian street. The layout naturally separates the sleeping area from the living area.",
- mq:"square metres",
  p1t:"Metres from the sea",p1p:"Six minutes on foot and you are on Pescara beach. The promenade, the beach clubs, the kiosks: all without ever taking the car.",
  p2t:"Metres from the station",p2p:"Arrive by train at Pescara Centrale and you are home in seven minutes, suitcase in hand. The airport is four kilometres away.",
- p3t:"Cars at the door",p3p:"We are in the pedestrian zone, on the main street. No traffic, no noise: only shops, cafés and restaurants a few metres from the entrance.",
  e2:"The rooms",s0t:"Room by room",
  e3:"Living area",s1t:"The living room",
  s1p:"The heart of the house: wide sofas, Persian rugs, light coming in from the windows over the main street. This is where the group gathers in the evening, after the beach or after dinner out.",
- s1a:"Flat-screen smart TV",s1b:"Air conditioning",s1c:"Free WiFi throughout",s1d:"Dining table for six",
+ s1a:"Flat-screen smart TV",s1c:"Free WiFi throughout",s1d:"Dining table for six",
  e4:"Sleeping area",s2t:"Three double bedrooms",
- s2p:"Three bedrooms, three double beds, three balconies. Each with its own character: the tapestry room, the one with the oval mirror, the one with the carved headboard. Cotton linen and towels changed for every stay.",
- s2a:"Private balcony in every bedroom",s2b:"Roomy wardrobes and hangers",s2c:"Sleeping area splits into two",s2d:"Non-smoking rooms",
+ s2p:"Three bedrooms, three double beds, three balconies. Each with its own character: the tapestry room, the one with the oval mirror, the one with the carved headboard.",
+ s2e:"Air conditioning in every bedroom",s2a:"Private balcony in every bedroom",s2b:"Roomy wardrobes and hangers",s2d:"Non-smoking rooms",
  e5:"Kitchen and services",s3t:"Kitchen, laundry, two bathrooms",
- s3p:"The kitchen is properly equipped: oven, fridge, dishwasher, coffee machine, pots and tableware for six. A washing machine is available, handy for longer stays. Two full bathrooms, one with a shower and one with a bathtub.",
+ s3p:"Fully equipped kitchen: oven, fridge, dishwasher, coffee machine, pots and tableware. There is also a laundry area with a washing machine, handy for longer stays. Two full bathrooms, one with a shower and one with a bathtub.",
  s3a:"Dishwasher and washing machine",s3b:"Coffee machine and kettle",s3c:"Two bathrooms with bidet, hairdryer included",s3d:"Lift up to the third floor",
  e6:"Amenities",a0t:"Everything you need",
  a1:"WiFi",a1s:"free, fibre",a2:"Air conditioning",a2s:"in every room",a3:"Lift",a3s:"third floor, staircase B",
@@ -774,17 +815,22 @@ const EN={
  d1:"Pescara beach",d1s:"promenade and beach clubs",d2:"Central station",d2s:"trains and car park",
  d3:"Bus terminal",d3s:"regional connections",d4:"Restaurants and cafés",d4s:"downstairs, on the main street",
  d5:"D'Annunzio's birthplace",d5s:"museum and old town",d6:"Harbour and Ponte del Mare",d6s:"evening walk",
- d7:"Pescara airport",d7s:"domestic and low-cost flights",d8:"Montesilvano beach",d8s:"by car or by train",
- e9:"Rates",t0t:"The more you are, the less each pays",
- t0p:"Indicative prices per person, per night. The exact rate depends on the season and the length of stay: write to us and we will confirm within a few hours.",
- t1w:"1 – 3 guests",t2w:"4 guests",t3w:"5 – 6 guests",
- perp:"per person, per night",perp2:"per person, per night",perp3:"per person, per night",
- t1n:"The whole apartment to yourselves, even as a couple.",
- t2n:"Two bedrooms in use, the third stays free.",
- t3n:"The best value: three bedrooms, two bathrooms, everyone together.",
+ d7:"Pescara airport",d7s:"domestic and low-cost flights",
+ e9:"Book",t0t:"Pick your dates and see the price",
+ t0p:"Select arrival and departure on the calendar and tell us how many you are: the price is worked out for you.",
+ bkn1:"This is a request, not a confirmed booking.",
+ bkn2:"We will send you a confirmation message with final availability and arrival instructions, usually within a few hours. Nothing is due until we confirm.",
+ lgSel:"Selected",lgBusy:"Not available",
+ sm1:"Arrival",sm2:"Departure",sm3:"Nights",sm4:"Guests",sm5:"Price per person / night",sm6:"Total for the stay",
+ sm7:"This is the amount of your request. If we confirm availability, this is what you will pay.",
+ bf1:"First name",bf2:"Surname",bf3:"Nationality",bf4:"City you travel from",
+ bf5:"Number of guests",bf6:"Of which children",bf7:"Email",bf8:"Expected arrival time",
+ bf9:"Special requests",
+ bf10:"I agree to my data being used to answer this request and manage a possible stay. We do not share it with third parties.",
+ bfsend:"Send request on WhatsApp",
+ bfw:"WhatsApp will open with the message already written: just hit send.",
  ru1t:"Your stay",ru1a:"Check-in",ru1b:"Check-out",ru1c:"Minimum stay",ru1cv:"2 nights",
  ru1d:"Maximum stay",ru1dv:"28 days",ru1e:"Booking notice",ru1ev:"at least 24 hours",
- ru1f:"Deposit",ru1fv:"€50 cash, refunded",
  ru2t:"Good to know",ru2a:"Children",ru2av:"welcome (no cots)",ru2b:"Pets",ru2bv:"not allowed",
  ru2c:"Smoking",ru2cv:"not allowed",ru2d:"Parties and events",ru2dv:"not allowed",
  ru2e:"Floor",ru2ev:"third, staircase B, with lift",ru2f:"Languages",ru2fv:"Italian, English",
@@ -794,15 +840,8 @@ const EN={
  rv1:"“An exceptional apartment, elegant, cared for down to the smallest detail. It felt like being at home: the owners looked after us in every way.”",
  rv2:"“The house is very spacious and welcoming, the rooms bright. Even though we are right in the centre, inside the pedestrian zone there is no noise.”",
  rv3:"“Everything — we loved staying here. Our host went out of her way to assist. We would definitely recommend Milu.”",
- e11:"About us",h0t:"We welcome you in person",
- h0p1:"Milu did not start as an investment. It is a family home in the centre of Pescara that we restored room by room, choosing every piece of furniture, every mirror, every ceramic. We wanted arriving guests to feel like guests, not customers.",
- h0p2:"Someone is always there to greet you on arrival: usually Annarita opens the door, shows you around and tells you where to eat well without going far. If you prefer to arrive late or have an awkward flight, we arrange self check-in with the entrance code.",
- h0p3:"Then we stay reachable by phone for the whole stay: advice on where to have dinner, directions to the beach, a problem to solve. When you leave, we like knowing you felt at home — and, often, that you will be back.",
- sign:"Francesca, Lucia and Annarita",
- e12:"Contact",c0t:"Check your dates",
- c0p:"Send us your dates and within a few hours we will confirm availability and the exact price. Booking directly means no portal commission.",
- fn:"Full name",fe:"Email",fi:"Arrival",fo:"Departure",fg:"Guests",ft:"Phone",fm:"Message",fsend:"Send request",
- fpriv:"By sending this request you agree that your data will be used only to reply and manage a possible booking. We do not share it with anyone and we will not add you to any newsletter.",
+ e12:"Contact",c0t:"Let's talk",
+ c0p:"For a quick question, or if you would rather speak to us before booking. We reply in Italian and English.",
  ci1:"Address",ci1b:"Third floor, staircase B (lift available)",ci1c:"Open in Google Maps",
  ci2:"Phone",ci2b:"Message us on WhatsApp",
  ci3:"Good to know",ci3b:"We reply in Italian and English, usually within a few hours. Bookings need at least 24 hours' notice.",
@@ -819,43 +858,232 @@ function setLang(l){
     const k=el.dataset.i18n;
     if(dict[k]!==undefined) el.innerHTML=dict[k];
   });
-  const ta=document.getElementById('f_msg');
-  ta.placeholder = (l==='en') ? ta.dataset.phEn : ta.dataset.phIt;
+  document.querySelectorAll('[data-ph-it]').forEach(el=>{
+    el.placeholder = (l==='en') ? el.dataset.phEn : el.dataset.phIt;
+  });
   document.documentElement.lang=l;
   document.getElementById('b-it').classList.toggle('on',l==='it');
   document.getElementById('b-en').classList.toggle('on',l==='en');
   document.title = (l==='en')
     ? 'Milu Luxury Apartment — Elegant apartment in central Pescara, 450 m from the sea'
     : 'Milu Luxury Apartment — Appartamento nel centro di Pescara, a 450 m dal mare';
-  buildGal();
+  buildGal(); drawCal(); updateSummary();
 }
 
-/* ---------- FORM ---------- */
-function sendReq(e){
-  e.preventDefault();
-  const v=id=>document.getElementById(id).value;
+/* ================= CALENDARIO E PREZZI ================= */
+
+/* Numero WhatsApp che riceve le richieste (Francesca) */
+const WA_NUM='393348369972';
+
+/* Tariffe a persona, a notte.
+   alta = giugno, luglio, agosto — bassa = resto dell'anno */
+const TARIFFE=[
+  {max:3, bassa:56, alta:58},
+  {max:4, bassa:46, alta:49},
+  {max:6, bassa:42, alta:44}
+];
+const MIN_NOTTI=2, MAX_NOTTI=28, PREAVVISO_ORE=24;
+
+/* Date non disponibili.
+   Vengono lette da disponibilita.json (aggiornabile a mano o via Booking).
+   Formato: ["2026-08-10","2026-08-11", ...] */
+let OCCUPATE=new Set();
+
+const MESI_IT=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+const MESI_EN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const GG_IT=['lun','mar','mer','gio','ven','sab','dom'];
+const GG_EN=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+const oggi=new Date(); oggi.setHours(0,0,0,0);
+const primaData=new Date(oggi.getTime()+PREAVVISO_ORE*3600*1000); primaData.setHours(0,0,0,0);
+let calCursor=new Date(oggi.getFullYear(),oggi.getMonth(),1);
+let dIn=null, dOut=null;
+
+const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const isAlta=d=>[5,6,7].includes(d.getMonth());   /* giugno=5, luglio=6, agosto=7 */
+const fmt=d=>d?d.getDate()+' '+(LANG==='en'?MESI_EN:MESI_IT)[d.getMonth()].slice(0,LANG==='en'?3:3)+' '+d.getFullYear():'—';
+
+function tariffa(nOspiti,data){
+  const f=TARIFFE.find(t=>nOspiti<=t.max)||TARIFFE[TARIFFE.length-1];
+  return isAlta(data)?f.alta:f.bassa;
+}
+
+function drawCal(){
+  const body=document.getElementById('calBody');
+  const mesi=LANG==='en'?MESI_EN:MESI_IT, gg=LANG==='en'?GG_EN:GG_IT;
+  let out='';
+  for(let m=0;m<2;m++){
+    const base=new Date(calCursor.getFullYear(),calCursor.getMonth()+m,1);
+    const anno=base.getFullYear(), mese=base.getMonth();
+    const primo=(new Date(anno,mese,1).getDay()+6)%7;      /* lunedì = 0 */
+    const giorni=new Date(anno,mese+1,0).getDate();
+    out+=`<div><div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;margin-bottom:8px;text-align:center">${mesi[mese]} ${anno}</div>`;
+    out+='<table><thead><tr>'+gg.map(g=>`<th>${g}</th>`).join('')+'</tr></thead><tbody><tr>';
+    for(let i=0;i<primo;i++) out+='<td></td>';
+    for(let g=1;g<=giorni;g++){
+      const d=new Date(anno,mese,g), k=iso(d);
+      let cls='d';
+      if(d<primaData) cls+=' off';
+      else if(OCCUPATE.has(k)) cls+=' busy';
+      if(dIn&&k===iso(dIn)) cls+=' sel';
+      if(dOut&&k===iso(dOut)) cls+=' sel';
+      if(dIn&&dOut&&d>dIn&&d<dOut) cls+=' rng';
+      const click=(d<primaData||OCCUPATE.has(k))?'':`onclick="pickDay('${k}')"`;
+      out+=`<td><div class="${cls}" ${click}>${g}</div></td>`;
+      if((primo+g)%7===0) out+='</tr><tr>';
+    }
+    out+='</tr></tbody></table></div>';
+  }
+  body.innerHTML=out;
+  document.getElementById('calLabel').textContent=
+    mesi[calCursor.getMonth()]+' '+calCursor.getFullYear()+' — '+
+    mesi[(calCursor.getMonth()+1)%12]+' '+new Date(calCursor.getFullYear(),calCursor.getMonth()+1,1).getFullYear();
+  const p=document.getElementById('calPrev');
+  p.disabled = calCursor.getFullYear()===oggi.getFullYear() && calCursor.getMonth()===oggi.getMonth();
+}
+
+function mvCal(n){
+  const nuovo=new Date(calCursor.getFullYear(),calCursor.getMonth()+n,1);
+  if(n<0 && nuovo<new Date(oggi.getFullYear(),oggi.getMonth(),1))return;
+  calCursor=nuovo; drawCal();
+}
+
+function pickDay(k){
+  const [y,m,g]=k.split('-').map(Number);
+  const d=new Date(y,m-1,g);
+  if(!dIn || (dIn&&dOut) || d<=dIn){ dIn=d; dOut=null; }
+  else {
+    /* niente date occupate dentro l'intervallo scelto */
+    for(let t=new Date(dIn); t<d; t.setDate(t.getDate()+1)){
+      if(OCCUPATE.has(iso(t))){ dIn=d; dOut=null; drawCal(); updateSummary(); return; }
+    }
+    dOut=d;
+  }
+  drawCal(); updateSummary();
+}
+
+function setGuests(){ setKids(); updateSummary(); }
+
+function setKids(){
+  const sel=document.getElementById('b_kids');
+  const g=+document.getElementById('b_osp').value;
+  let n=+sel.value;
+  if(n>g){ n=g; sel.value=n; }               /* i bambini non possono superare gli ospiti */
+  const w=document.getElementById('kidsWrap');
+  w.classList.toggle('on',n>0);
+  const lbl=LANG==='en'?'Age of child':'Età bambino';
+  w.innerHTML=n?`<div class="kids-lbl">${LANG==='en'
+      ? 'Please tell us the age of each child — it helps us prepare the right beds.'
+      : 'Indicaci l\'età di ogni bambino: ci serve per preparare i letti giusti.'}</div>`
+    +Array.from({length:n},(_,i)=>
+    `<div><label>${lbl} ${i+1}</label><input type="number" min="0" max="17" class="kidAge" required placeholder="0-17"></div>`).join(''):'';
+}
+
+function updateSummary(){
+  const g=+document.getElementById('b_osp').value;
   const en=LANG==='en';
-  const sub=en?`Booking request — ${v('f_in')} / ${v('f_out')} — ${v('f_osp')} guests`
-             :`Richiesta prenotazione — ${v('f_in')} / ${v('f_out')} — ${v('f_osp')} ospiti`;
-  const body=(en
-    ? `Name: ${v('f_nome')}\nEmail: ${v('f_mail')}\nPhone: ${v('f_tel')}\nArrival: ${v('f_in')}\nDeparture: ${v('f_out')}\nGuests: ${v('f_osp')}\n\nMessage:\n${v('f_msg')}`
-    : `Nome: ${v('f_nome')}\nEmail: ${v('f_mail')}\nTelefono: ${v('f_tel')}\nArrivo: ${v('f_in')}\nPartenza: ${v('f_out')}\nOspiti: ${v('f_osp')}\n\nMessaggio:\n${v('f_msg')}`);
-  /* SOSTITUIRE con l'email definitiva del dominio, es. info@miluluxuryapartment.it */
-  window.location.href='mailto:INSERIRE-EMAIL@DOMINIO.IT?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body);
+  document.getElementById('smIn').textContent=fmt(dIn);
+  document.getElementById('smOut').textContent=fmt(dOut);
+  document.getElementById('smG').textContent=g;
+  const warn=document.getElementById('smWarn');
+  warn.style.display='none';
+
+  if(!dIn||!dOut){
+    document.getElementById('smN').textContent='—';
+    document.getElementById('smPp').textContent='—';
+    document.getElementById('smTot').textContent='—';
+    return;
+  }
+  const notti=Math.round((dOut-dIn)/86400000);
+  document.getElementById('smN').textContent=notti;
+
+  if(notti<MIN_NOTTI){
+    warn.textContent=en?`Minimum stay is ${MIN_NOTTI} nights.`:`Il soggiorno minimo è di ${MIN_NOTTI} notti.`;
+    warn.style.display='block';
+  } else if(notti>MAX_NOTTI){
+    warn.textContent=en?`Maximum stay is ${MAX_NOTTI} nights.`:`Il soggiorno massimo è di ${MAX_NOTTI} notti.`;
+    warn.style.display='block';
+  }
+
+  let tot=0, tariffeUsate=new Set();
+  for(let t=new Date(dIn); t<dOut; t.setDate(t.getDate()+1)){
+    const p=tariffa(g,t); tot+=p*g; tariffeUsate.add(p);
+  }
+  const pp=[...tariffeUsate].sort((a,b)=>a-b);
+  document.getElementById('smPp').textContent=(pp.length>1?`${pp[0]}–${pp[pp.length-1]}`:pp[0])+' €';
+  document.getElementById('smTot').textContent=tot.toLocaleString('it-IT')+' €';
+}
+
+function sendBooking(e){
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const en=LANG==='en';
+  if(!dIn||!dOut){
+    alert(en?'Please select arrival and departure dates on the calendar.':'Seleziona le date di arrivo e partenza sul calendario.');
+    return false;
+  }
+  const notti=Math.round((dOut-dIn)/86400000);
+  if(notti<MIN_NOTTI||notti>MAX_NOTTI){
+    alert(en?`The stay must be between ${MIN_NOTTI} and ${MAX_NOTTI} nights.`:`Il soggiorno deve essere tra ${MIN_NOTTI} e ${MAX_NOTTI} notti.`);
+    return false;
+  }
+  const campiEta=[...document.querySelectorAll('.kidAge')];
+  if(campiEta.some(i=>i.value===''||isNaN(+i.value))){
+    alert(en?'Please tell us the age of each child.':'Indica l\'età di ogni bambino.');
+    return false;
+  }
+  const eta=campiEta.map(i=>i.value);
+  const L=en
+    ? {t:'BOOKING REQUEST — Milu Luxury Apartment',n:'Name',c:'Surname',na:'Nationality',ci:'City',i:'Arrival',o:'Departure',nt:'Nights',g:'Guests',k:'Children ages',m:'Email',h:'Expected arrival time',r:'Special requests',e:'Total for the stay'}
+    : {t:'RICHIESTA DI PRENOTAZIONE — Milu Luxury Apartment',n:'Nome',c:'Cognome',na:'Nazionalità',ci:'Città',i:'Arrivo',o:'Partenza',nt:'Notti',g:'Ospiti',k:'Età bambini',m:'Email',h:'Orario di arrivo previsto',r:'Richieste particolari',e:'Totale soggiorno'};
+  const righe=[
+    L.t,'',
+    `${L.n}: ${v('b_nome')}`,
+    `${L.c}: ${v('b_cognome')}`,
+    `${L.na}: ${v('b_naz')}`,
+    `${L.ci}: ${v('b_citta')}`,'',
+    `${L.i}: ${fmt(dIn)}`,
+    `${L.o}: ${fmt(dOut)}`,
+    `${L.nt}: ${notti}`,
+    `${L.g}: ${v('b_osp')}`,
+    eta.length?`${L.k}: ${eta.join(', ')}`:null,
+    '',
+    `${L.m}: ${v('b_mail')}`,
+    v('b_ora')?`${L.h}: ${v('b_ora')}`:null,
+    v('b_note')?`${L.r}: ${v('b_note')}`:null,
+    '',
+    `${L.e}: ${document.getElementById('smTot').textContent}`
+  ].filter(r=>r!==null).join('\n');
+  window.open('https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(righe),'_blank');
   return false;
 }
+
+/* Carica le date occupate. Se il file non c'è, il calendario resta tutto libero. */
+fetch('disponibilita.json',{cache:'no-store'})
+  .then(r=>r.ok?r.json():null)
+  .then(j=>{ if(j&&Array.isArray(j.occupate)){ OCCUPATE=new Set(j.occupate); drawCal(); } })
+  .catch(()=>{});
 
 /* ---------- UI ---------- */
 document.getElementById('yy').textContent=new Date().getFullYear();
 const hd=document.getElementById('hd');
 addEventListener('scroll',()=>hd.classList.toggle('solid',scrollY>70));
 document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const today=new Date().toISOString().split('T')[0];
-document.getElementById('f_in').min=today; document.getElementById('f_out').min=today;
-document.getElementById('f_in').addEventListener('change',e=>{document.getElementById('f_out').min=e.target.value;});
-buildGal();
+buildGal(); drawCal(); updateSummary();
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  /* rete di sicurezza: se per qualsiasi motivo l'animazione non parte, mostra comunque tutto */
+  const safety=()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+    if(el.getBoundingClientRect().top < innerHeight*1.2) el.classList.add('in');
+  });
+  addEventListener('scroll',safety,{passive:true});
+  addEventListener('load',()=>setTimeout(safety,300));
+  setTimeout(safety,2500);
+}else{
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+}
+setLang('it');
 </script>
 </body>
 </html>

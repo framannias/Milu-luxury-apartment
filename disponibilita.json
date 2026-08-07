@@ -1,0 +1,5 @@
+{
+  "_istruzioni": "Elenca qui le date GIA' OCCUPATE, una per riga, nel formato AAAA-MM-GG. Il calendario del sito le mostra barrate e non cliccabili. Esempio: \"2026-08-14\", \"2026-08-15\". Salva il file e ricaricalo su GitHub: il sito si aggiorna da solo.",
+  "aggiornato": "2026-08-06",
+  "occupate": []
+}
