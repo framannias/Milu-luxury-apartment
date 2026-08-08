@@ -49,6 +49,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:78px}
+@media(max-width:940px){section[id]{scroll-margin-top:66px}}
 body{font-family:'Jost',system-ui,sans-serif;font-weight:400;font-size:1.06rem;color:var(--ink);background:var(--cream);line-height:1.72;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -274,10 +276,11 @@ textarea{resize:vertical;min-height:110px}
 .ct-block .lab{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-l);margin-bottom:8px}
 .ct-block a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:1px}
 .ct-block a:hover{border-color:var(--brass-l)}
-.wa{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;padding:11px 22px 11px 12px;text-decoration:none;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin-top:12px;transition:.3s;border-radius:40px}
+.wa{display:inline-flex;align-items:center;justify-content:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;padding:10px 26px;text-decoration:none;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin-top:14px;transition:.3s;border-radius:40px;line-height:1}
 .wa:hover{background:#25D366;border-color:#25D366}
-.wa-ico{width:30px;height:30px;flex:0 0 30px;display:block}
+.wa-ico{width:32px;height:32px;flex:0 0 32px;display:block}
 .wa-ico svg{width:100%;height:100%;display:block}
+.wa-txt{display:block;transform:translateY(1px)}
 
 /* FOOTER */
 footer{background:#1f2b25;color:rgba(255,255,255,.62);padding:26px 0;font-size:.84rem}
@@ -561,7 +564,6 @@ footer a:hover{color:var(--brass-l)}
           <div class="row"><span data-i18n="sm2">Partenza</span><b id="smOut">—</b></div>
           <div class="row"><span data-i18n="sm3">Notti</span><b id="smN">—</b></div>
           <div class="row"><span data-i18n="sm4">Ospiti</span><b id="smG">2</b></div>
-          <div class="row"><span data-i18n="sm5">Prezzo a persona / notte</span><b id="smPp">—</b></div>
           <div class="bk-tot"><span data-i18n="sm6">Totale soggiorno</span><b id="smTot">—</b></div>
           <div class="bk-hint" data-i18n="sm7">È l'importo della tua richiesta. Se confermiamo la disponibilità, è il prezzo che pagherai.</div>
           <div class="bk-warn" id="smWarn" style="display:none"></div>
@@ -679,9 +681,7 @@ footer a:hover{color:var(--brass-l)}
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow" data-i18n="e12">Contatti</div>
-      <h2 data-i18n="c0t">Parliamone</h2>
-      <p data-i18n="c0p">Per una domanda veloce, o se preferisci sentirci prima di prenotare. Rispondiamo in italiano e in inglese.</p>
-      <div class="rule"></div>
+      <div class="rule" style="margin-top:14px"></div>
     </div>
     <div class="ct-grid reveal">
       <div class="ct-photo"><img src="foto/foto08.jpg" alt="Snack e bevande di benvenuto" loading="lazy"></div>
@@ -699,7 +699,7 @@ footer a:hover{color:var(--brass-l)}
           Lucia — <a href="tel:+393485106399">+39 348 510 6399</a><br>
           <a class="wa" href="https://wa.me/393348369972" target="_blank" rel="noopener" aria-label="WhatsApp">
             <span class="wa-ico"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M22.6 9.3A9.2 9.2 0 0 0 8.1 20.4L6.8 25.2l4.9-1.3a9.2 9.2 0 0 0 4.4 1.1h.01a9.2 9.2 0 0 0 6.5-15.7zM16.1 23.5c-1.4 0-2.8-.4-4-1.1l-.29-.17-2.9.76.78-2.84-.19-.3a7.65 7.65 0 1 1 6.6 3.65zm4.2-5.73c-.23-.12-1.36-.67-1.57-.74-.21-.08-.36-.12-.51.11-.15.23-.59.74-.72.89-.13.15-.27.17-.5.06a6.27 6.27 0 0 1-1.85-1.14 6.94 6.94 0 0 1-1.28-1.59c-.13-.23-.01-.36.1-.47.11-.11.23-.27.35-.41.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.41-.06-.11-.51-1.24-.7-1.7-.19-.44-.37-.38-.51-.39h-.44c-.15 0-.39.06-.6.29-.2.23-.79.77-.79 1.88s.81 2.18.93 2.33c.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.36-.55 1.55-1.09.19-.54.19-1 .13-1.1-.06-.1-.21-.16-.44-.27z"/></svg></span>
-            <span data-i18n="ci2b">Scrivici su WhatsApp</span>
+            <span class="wa-txt" data-i18n="ci2b">Scrivici su WhatsApp</span>
           </a>
         </div>
       </div>
@@ -813,7 +813,7 @@ const EN={
  bkn1:"This is a request, not a confirmed booking.",
  bkn2:"We will send you a confirmation message with final availability and arrival instructions, usually within a few hours. Nothing is due until we confirm.",
  lgSel:"Selected",lgBusy:"Not available",
- sm1:"Arrival",sm2:"Departure",sm3:"Nights",sm4:"Guests",sm5:"Price per person / night",sm6:"Total for the stay",
+ sm1:"Arrival",sm2:"Departure",sm3:"Nights",sm4:"Guests",sm6:"Total for the stay",
  sm7:"This is the amount of your request. If we confirm availability, this is what you will pay.",
  bf1:"First name",bf2:"Surname",bf3:"Nationality",bf4:"City you travel from",
  bf5:"Number of guests",bf6:"Of which children",bf7:"Email",bf8:"Expected arrival time",
@@ -837,8 +837,7 @@ const EN={
  rv1:"“An exceptional apartment, elegant, cared for down to the smallest detail. It felt like being at home: the owners looked after us in every way.”",
  rv2:"“The house is very spacious and welcoming, the rooms bright. Even though we are right in the centre, inside the pedestrian zone there is no noise.”",
  rv3:"“Everything — we loved staying here. Our host went out of her way to assist. We would definitely recommend Milu.”",
- e12:"Contact",c0t:"Let's talk",
- c0p:"For a quick question, or if you would rather speak to us before booking. We reply in Italian and English.",
+ e12:"Contact",
  ci1:"Address",ci1b:"Third floor, staircase B (lift available)",ci1c:"Open in Google Maps",
  ci2:"Phone",ci2b:"Message us on WhatsApp",ftr:"All rights reserved"
 };
@@ -984,7 +983,6 @@ function updateSummary(){
 
   if(!dIn||!dOut){
     document.getElementById('smN').textContent='—';
-    document.getElementById('smPp').textContent='—';
     document.getElementById('smTot').textContent='—';
     return;
   }
@@ -999,12 +997,8 @@ function updateSummary(){
     warn.style.display='block';
   }
 
-  let tot=0, tariffeUsate=new Set();
-  for(let t=new Date(dIn); t<dOut; t.setDate(t.getDate()+1)){
-    const p=tariffa(g,t); tot+=p*g; tariffeUsate.add(p);
-  }
-  const pp=[...tariffeUsate].sort((a,b)=>a-b);
-  document.getElementById('smPp').textContent=(pp.length>1?`${pp[0]}–${pp[pp.length-1]}`:pp[0])+' €';
+  let tot=0;
+  for(let t=new Date(dIn); t<dOut; t.setDate(t.getDate()+1)) tot+=tariffa(g,t)*g;
   document.getElementById('smTot').textContent=tot.toLocaleString('it-IT')+' €';
 }
 
@@ -1062,7 +1056,31 @@ fetch('disponibilita.json',{cache:'no-store'})
 document.getElementById('yy').textContent=new Date().getFullYear();
 const hd=document.getElementById('hd');
 addEventListener('scroll',()=>hd.classList.toggle('solid',scrollY>70));
-document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+/* Scorrimento verso le sezioni.
+   Le immagini caricate in ritardo cambiano l'altezza della pagina: senza correzione
+   il salto finisce troppo in basso, soprattutto da cellulare. */
+function vaiA(sel){
+  const t=document.querySelector(sel); if(!t) return;
+  const off=()=>Math.max(0, t.getBoundingClientRect().top+window.scrollY-(innerWidth<940?58:70));
+  window.scrollTo({top:off(),behavior:'smooth'});
+  /* ricalcolo dopo il caricamento delle immagini e a fine animazione */
+  let n=0;
+  const fix=setInterval(()=>{
+    const d=t.getBoundingClientRect().top-(innerWidth<940?58:70);
+    if(Math.abs(d)>6) window.scrollTo({top:window.scrollY+d,behavior:'smooth'});
+    if(++n>6) clearInterval(fix);
+  },350);
+  setTimeout(()=>clearInterval(fix),2600);
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const href=a.getAttribute('href');
+    document.getElementById('menu').classList.remove('open');
+    if(href==='#'||href.length<2) return;
+    if(href==='#top'){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); return; }
+    if(document.querySelector(href)){ e.preventDefault(); vaiA(href); }
+  });
+});
 buildGal(); drawCal(); updateSummary();
 if('IntersectionObserver' in window){
   const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.06});
