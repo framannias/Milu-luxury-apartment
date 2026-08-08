@@ -868,13 +868,18 @@ function setLang(l){
 /* Numero WhatsApp che riceve le richieste (Francesca) */
 const WA_NUM='393348369972';
 
-/* Tariffe a persona, a notte.
+/* Tariffe: prezzo TOTALE dell'appartamento per notte, in base al numero di ospiti.
+   Modello a occupazione, come Booking: l'ancora è l'appartamento pieno (6 ospiti)
+   e scendere di persone fa risparmiare sempre meno.
    alta = giugno, luglio, agosto — bassa = resto dell'anno */
-const TARIFFE=[
-  {max:3, bassa:56, alta:58},
-  {max:4, bassa:46, alta:49},
-  {max:6, bassa:42, alta:44}
-];
+const TARIFFE={
+  1:{bassa:168, alta:176},
+  2:{bassa:168, alta:176},
+  3:{bassa:175, alta:184},
+  4:{bassa:198, alta:208},
+  5:{bassa:226, alta:237},
+  6:{bassa:252, alta:264}
+};
 const MIN_NOTTI=2, MAX_NOTTI=28, PREAVVISO_ORE=24;
 
 /* Date non disponibili.
@@ -897,7 +902,7 @@ const isAlta=d=>[5,6,7].includes(d.getMonth());   /* giugno=5, luglio=6, agosto=
 const fmt=d=>d?d.getDate()+' '+(LANG==='en'?MESI_EN:MESI_IT)[d.getMonth()].slice(0,LANG==='en'?3:3)+' '+d.getFullYear():'—';
 
 function tariffa(nOspiti,data){
-  const f=TARIFFE.find(t=>nOspiti<=t.max)||TARIFFE[TARIFFE.length-1];
+  const f=TARIFFE[Math.min(Math.max(nOspiti,1),6)];
   return isAlta(data)?f.alta:f.bassa;
 }
 
@@ -998,7 +1003,7 @@ function updateSummary(){
   }
 
   let tot=0;
-  for(let t=new Date(dIn); t<dOut; t.setDate(t.getDate()+1)) tot+=tariffa(g,t)*g;
+  for(let t=new Date(dIn); t<dOut; t.setDate(t.getDate()+1)) tot+=tariffa(g,t);
   document.getElementById('smTot').textContent=tot.toLocaleString('it-IT')+' €';
 }
 
